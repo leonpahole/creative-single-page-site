@@ -1,0 +1,148 @@
+@use "../breakpoints.scss";
+@use "../colors.scss";
+@use "../sizes.scss";
+
+.approach {
+  display: flex;
+
+  .approach-heading {
+    position: relative;
+    z-index: 1;
+
+    font-weight: 800;
+
+    font-size: sizes.px(32);
+    line-height: sizes.px(40);
+
+    @include breakpoints.xl {
+      font-size: sizes.px(56);
+      line-height: sizes.px(64);
+    }
+  }
+
+  .approach-left {
+    display: none;
+
+    @include breakpoints.md {
+      display: block;
+      flex-basis: 330px;
+      padding: 126px 10px 0 30px;
+    }
+
+    @include breakpoints.xl {
+      flex-basis: 735px;
+      padding: 200px 30px 0 165px;
+    }
+
+    .approach-heading {
+      color: colors.$text-black;
+      max-width: 540px;
+    }
+  }
+
+  .approach-right {
+    margin-top: 0;
+
+    @include breakpoints.md {
+      margin-top: -150px;
+      margin-left: 0;
+    }
+
+    @include breakpoints.xl {
+      margin-top: -200px;
+      margin-left: -200px;
+    }
+
+    position: relative;
+
+    background-color: colors.$red;
+    flex: 1;
+
+    padding: 96px 24px;
+
+    @include breakpoints.md {
+      padding: 120px 40px 120px 43px;
+    }
+
+    @include breakpoints.xl {
+      padding: 200px 106px 200px 200px;
+    }
+
+    .approach-heading {
+      margin-bottom: 49px;
+      color: white;
+
+      @include breakpoints.md {
+        display: none;
+      }
+    }
+
+    .approach-articles-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .approach-article {
+        position: relative;
+
+        padding-left: 16px;
+        padding-top: 44px;
+
+        @include breakpoints.xl {
+          padding-left: 59px;
+        }
+
+        color: colors.$white;
+
+        max-width: 504px;
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 40px;
+
+          @include breakpoints.xl {
+            margin-bottom: 56px;
+          }
+        }
+
+        .approach-article-number {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+
+          font-weight: 800;
+          font-size: sizes.px(80);
+          line-height: sizes.px(88);
+
+          opacity: 0.25;
+        }
+
+        .approach-article-heading {
+          font-weight: 800;
+
+          font-size: sizes.px(15);
+          line-height: sizes.px(25);
+
+          @include breakpoints.xl {
+            font-size: sizes.px(20);
+            line-height: sizes.px(32);
+          }
+        }
+
+        .approach-article-description {
+          font-weight: 400;
+
+          font-size: sizes.px(15);
+          line-height: sizes.px(25);
+          margin-top: 15px;
+
+          @include breakpoints.xl {
+            margin-top: 24px;
+            font-size: sizes.px(18);
+            line-height: sizes.px(32);
+          }
+        }
+      }
+    }
+  }
+}

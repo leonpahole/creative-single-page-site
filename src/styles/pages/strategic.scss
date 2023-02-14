@@ -1,0 +1,152 @@
+@use "../breakpoints.scss";
+@use "../colors.scss";
+@use "../sizes.scss";
+@use "sass:math";
+
+.strategic {
+  display: flex;
+
+  .strategic-left {
+    position: relative;
+
+    .strategic-img {
+      object-fit: cover;
+      display: none;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      @include breakpoints.md {
+        display: block;
+        max-width: 378px;
+      }
+
+      @include breakpoints.lg {
+        display: block;
+        max-width: 735px;
+      }
+    }
+
+    .strategic-divider-img {
+      position: absolute;
+
+      $height: 29px;
+      top: math.div(-$height, 2);
+
+      height: $height;
+      width: 63px;
+
+      left: 24px;
+
+      @include breakpoints.md {
+        $width: 63px;
+
+        height: auto;
+        width: $width;
+
+        left: unset;
+
+        top: 145px;
+        right: math.div(-$width, 2);
+      }
+
+      @include breakpoints.lg {
+        $width: 135px;
+        width: $width;
+
+        top: 234px;
+        right: math.div(-$width, 2);
+      }
+    }
+  }
+
+  .strategic-right {
+    flex: 1;
+    background-color: colors.$bg-black;
+
+    padding: 72px 24px;
+
+    @include breakpoints.md {
+      padding: 120px 40px 240px 69px;
+    }
+
+    @include breakpoints.lg {
+      padding: 200px 106px 200px 154px;
+    }
+
+    .strategic-heading {
+      font-weight: 800;
+
+      font-size: sizes.px(32);
+      line-height: sizes.px(40);
+
+      @include breakpoints.lg {
+        font-size: sizes.px(56);
+        line-height: sizes.px(64);
+      }
+
+      max-width: 410px;
+
+      color: colors.$white;
+
+      .strategic-emphasis {
+        color: colors.$red;
+        font-style: normal;
+      }
+    }
+
+    .strategic-description {
+      max-width: 445px;
+
+      color: colors.$white;
+
+      font-weight: 400;
+
+      margin-top: 24px;
+
+      @include breakpoints.md {
+        margin-top: 32px;
+      }
+
+      @include breakpoints.lg {
+        margin-top: 43px;
+      }
+
+      font-size: sizes.px(15);
+      line-height: sizes.px(25);
+
+      @include breakpoints.lg {
+        font-size: sizes.px(18);
+        line-height: sizes.px(32);
+      }
+    }
+
+    .strategic-button {
+      background-color: transparent;
+      border: none;
+
+      color: colors.$red;
+
+      font-weight: 800;
+
+      margin-top: 40px;
+
+      font-size: sizes.px(15);
+      line-height: sizes.px(18);
+
+      @include breakpoints.md {
+        font-size: sizes.px(18);
+        line-height: sizes.px(22);
+        margin-top: 48px;
+        margin-bottom: 48px;
+      }
+
+      border-bottom: 2px solid colors.$red;
+      padding-bottom: 8px;
+
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@use "./pages/navbar.scss";
+@use "./pages/presentation.scss";
+@use "./pages/strategic.scss";
+@use "./pages/approach.scss";
+@use "./pages/carousel.scss";
+@use "./pages/footer.scss";
+
+@use "./reset.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  width: auto !important;
+  width: 320px;
+}

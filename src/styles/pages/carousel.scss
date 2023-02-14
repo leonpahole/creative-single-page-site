@@ -1,0 +1,178 @@
+@use "../breakpoints.scss";
+@use "../colors.scss";
+@use "../sizes.scss";
+@use "sass:math";
+
+.carousel {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include breakpoints.md {
+    flex-direction: row;
+  }
+
+  .carousel-left {
+    @include breakpoints.md {
+      width: 390px;
+    }
+
+    @include breakpoints.lg {
+      width: 735px;
+    }
+
+    .carousel-controls-wrapper {
+      width: 100%;
+
+      position: relative;
+      z-index: 10;
+
+      background-color: colors.$bg-black;
+
+      padding: 64px 24px;
+
+      @include breakpoints.md {
+        padding: 100px 70px 100px 39px;
+      }
+
+      @include breakpoints.lg {
+        padding: 152px 125px 152px 165px;
+      }
+
+      .carousel-controls-wave {
+        z-index: 1;
+        position: absolute;
+        display: none;
+
+        @include breakpoints.md {
+          display: initial;
+
+          $width: 62px;
+
+          width: $width;
+          height: 28px;
+
+          right: math.div(-$width, 2);
+          top: 126px;
+        }
+
+        @include breakpoints.lg {
+          $width: 134px;
+
+          width: $width;
+          height: 60px;
+
+          right: math.div(-$width, 2);
+          top: 186px;
+        }
+      }
+
+      .carousel-heading {
+        font-weight: 800;
+
+        font-size: sizes.px(32);
+        line-height: sizes.px(40);
+
+        @include breakpoints.lg {
+          font-size: sizes.px(56);
+          line-height: sizes.px(64);
+        }
+
+        color: colors.$white;
+      }
+
+      .carousel-controls {
+        margin-top: 24px;
+
+        @include breakpoints.md {
+          margin-top: 32px;
+        }
+
+        @include breakpoints.lg {
+          margin-top: 51px;
+        }
+
+        display: flex;
+        gap: 16px;
+
+        .carousel-arrow {
+          padding: 0;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+
+          img {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel-content {
+    flex-basis: 423px;
+
+    color: colors.$white;
+
+    position: relative;
+
+    @include breakpoints.md {
+      flex-basis: auto;
+      margin-left: -50px;
+      height: 472px;
+      flex: 1;
+    }
+
+    @include breakpoints.xl {
+      margin-left: -200px;
+      height: 728px;
+    }
+
+    .carousel-content-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      object-fit: cover;
+    }
+
+    .carousel-content-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      text-align: end;
+
+      padding: 35px 32px;
+
+      @include breakpoints.md {
+        padding-right: 40px;
+        padding-bottom: 45px;
+      }
+
+      @include breakpoints.lg {
+        padding-right: 154px;
+        padding-bottom: 68px;
+      }
+
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.0001) 0%,
+        #000000 100%
+      );
+
+      .carousel-content-heading {
+        font-weight: 800;
+        font-size: sizes.px(20);
+        line-height: sizes.px(32);
+      }
+
+      .carousel-content-description {
+        font-weight: 400;
+        font-size: sizes.px(18);
+        line-height: sizes.px(32);
+      }
+    }
+  }
+}
